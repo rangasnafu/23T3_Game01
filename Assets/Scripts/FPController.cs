@@ -18,6 +18,8 @@ public class FPController : MonoBehaviour
     [SerializeField] private bool isGrounded;
     private Vector3 velocity;
 
+    public GameObject gameOverUI;
+
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -85,5 +87,15 @@ public class FPController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position - new Vector3(0, 1f, 0), transform.position - new Vector3(0, 1f, 0) + Vector3.down * 0.6f);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //if ()
+        //{
+        //      gameOverUI.SetActive(true);
+        //}
+
+        // compare tag with "Slime", when collide with player collider, set the Game Over UI as true
     }
 }
