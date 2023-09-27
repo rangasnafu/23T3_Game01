@@ -16,6 +16,7 @@ public class FPController : MonoBehaviour
     public LayerMask groundMask;
 
     private bool isGrounded;
+    private Vector3 velocity;
 
     private void Start()
     {
@@ -26,23 +27,29 @@ public class FPController : MonoBehaviour
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        // Move the player
         float moveSpeed = isSprinting ? sprintSpeed : walkSpeed;
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
+
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
 
-        // Jump
-        if (isGrounded == true)
+        if (isGrounded)
         {
+            velocity.y = -2f;
+
             if (Input.GetButtonDown("Jump"))
             {
-                characterController.Move(Vector3.up * jumpForce);
+                velocity.y = Mathf.Sqrt(jumpForce * -2f * Physics.gravity.y);
             }
         }
+        else
+        {
+            velocity.y += Physics.gravity.y * Time.deltaTime;
+        }
 
-        // Sprint
+        characterController.Move(velocity * Time.deltaTime);
+
         if (Input.GetButtonDown("Sprint"))
         {
             isSprinting = true;
