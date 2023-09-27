@@ -4436,7 +4436,7 @@ MonoBehaviour:
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 47
   isGrounded: 0
 --- !u!4 &209550344 stripped
 Transform:
@@ -18874,7 +18874,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -33222,7 +33222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1751546392587164, guid: 3aa58df061019574989fc0e803b8b563, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4100161663774336, guid: 3aa58df061019574989fc0e803b8b563, type: 3}
       propertyPath: m_RootOrder
@@ -39306,7 +39306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6096025790500384790, guid: 274150b4a05bdb341a0750e256824f7d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 121.388916
+      value: 120.81
       objectReference: {fileID: 0}
     - target: {fileID: 6096025790500384790, guid: 274150b4a05bdb341a0750e256824f7d, type: 3}
       propertyPath: m_LocalPosition.z

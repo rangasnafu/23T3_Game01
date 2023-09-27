@@ -25,7 +25,16 @@ public class FPController : MonoBehaviour
 
     private void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        //if ()
+        //{
+        //    isGrounded = true;
+        //}
+
+        isGrounded = IsGrounded();
+
+        
 
         float moveSpeed = isSprinting ? sprintSpeed : walkSpeed;
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -65,5 +74,16 @@ public class FPController : MonoBehaviour
         {
             isSprinting = false;
         }
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position - new Vector3(0, 1f, 0), Vector3.down, 0.6f, groundMask);
+    }
+
+   private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position - new Vector3(0, 1f, 0), transform.position - new Vector3(0, 1f, 0) + Vector3.down * 0.6f);
     }
 }
