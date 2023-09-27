@@ -8,14 +8,14 @@ public class FPController : MonoBehaviour
     public float sprintSpeed = 10f;
     public float jumpForce = 5f;
 
-    private CharacterController characterController;
+    public CharacterController characterController;
     private bool isSprinting = false;
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    private bool isGrounded;
+    [SerializeField] private bool isGrounded;
     private Vector3 velocity;
 
     private void Start()
@@ -34,19 +34,26 @@ public class FPController : MonoBehaviour
 
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
 
-        if (isGrounded)
-        {
-            velocity.y = -2f;
+        //if (isGrounded)
+        //{
+        //    velocity.y = -2f;
 
-            if (Input.GetButtonDown("Jump"))
-            {
-                velocity.y = Mathf.Sqrt(jumpForce * -2f * Physics.gravity.y);
-            }
-        }
-        else
+        //    if (Input.GetButtonDown("Jump"))
+        //    {
+        //        velocity.y = Mathf.Sqrt(jumpForce * -600f * Physics.gravity.y);
+        //    }
+        //}
+        //else
+        //{
+
+        velocity.y += Physics.gravity.y * Time.deltaTime;
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            velocity.y += Physics.gravity.y * Time.deltaTime;
+            velocity.y = jumpForce;
         }
+            
+        //}
 
         characterController.Move(velocity * Time.deltaTime);
 
