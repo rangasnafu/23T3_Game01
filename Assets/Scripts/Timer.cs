@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
 
     public GameObject gameOverTimeUI;
     public GameObject gameOverUI;
+    public GameObject timerUI;
 
     [SerializeField] TMP_Text countdownText;
 
@@ -29,6 +30,8 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (timerUI.activeSelf)
+        {
         currentTime -= Time.deltaTime;
         countdownText.text = currentTime.ToString("0");
 
@@ -51,7 +54,7 @@ public class Timer : MonoBehaviour
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene("Level1");
         }
-      
+        }
 
     }
 
