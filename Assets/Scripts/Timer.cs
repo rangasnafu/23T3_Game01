@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 60f;
+    float startingTime = 65f;
 
     public GameObject gameOverTimeUI;
     public GameObject gameOverUI;
