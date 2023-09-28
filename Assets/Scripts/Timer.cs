@@ -8,12 +8,10 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 65f;
+    float startingTime = 45f;
 
     public GameObject gameOverTimeUI;
     public GameObject gameOverUI;
-
-    public string newGameScene;
 
     [SerializeField] TMP_Text countdownText;
 
@@ -64,7 +62,7 @@ public class Timer : MonoBehaviour
 
         //if (Time.timeScale = 0f)
         //{
-            //Destroy(gameObject);
+        //    Destroy(gameObject);
         //}
         
     }

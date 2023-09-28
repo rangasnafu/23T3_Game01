@@ -10,10 +10,12 @@ public class FPCamera : MonoBehaviour
     public Transform cameraTransform;
     public float normalHeight = 1f;
 
+    //ChatGPT
     private float xRotation = 0f;
     private Vector3 cameraOriginalPosition;
     private Vector3 cameraCrouchPosition;
     private Vector3 cameraVelocity = Vector3.zero;
+    //end ChatGPT
 
     //public GameObject youWinUI;
 
@@ -35,6 +37,7 @@ public class FPCamera : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
+        //ChatGPT
         playerBody.Rotate(Vector3.up * mouseX);
 
         xRotation -= mouseY;
@@ -48,9 +51,9 @@ public class FPCamera : MonoBehaviour
 
         while (timer <= 1f)
         {
-            //cameraTransform.localPosition = Vector3.SmoothDamp(cameraTransform.localPosition, targetPosition, ref cameraVelocity);
             timer += Time.deltaTime;
             yield return null;
         }
     }
+    //end ChatGPT
 }
