@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class FPController : MonoBehaviour
 {
+    //ChatGPT
     public float walkSpeed = 5f;
     public float sprintSpeed = 10f;
     public float jumpForce = 5f;
 
     public CharacterController characterController;
     private bool isSprinting = false;
+    //end ChatGPT
 
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -27,35 +29,17 @@ public class FPController : MonoBehaviour
 
     private void Update()
     {
-        //isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-        //if ()
-        //{
-        //    isGrounded = true;
-        //}
-
         isGrounded = IsGrounded();
 
         
-
+        //ChatGPT
         float moveSpeed = isSprinting ? sprintSpeed : walkSpeed;
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 moveDirection = transform.forward * verticalInput + transform.right * horizontalInput;
 
         characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
-
-        //if (isGrounded)
-        //{
-        //    velocity.y = -2f;
-
-        //    if (Input.GetButtonDown("Jump"))
-        //    {
-        //        velocity.y = Mathf.Sqrt(jumpForce * -600f * Physics.gravity.y);
-        //    }
-        //}
-        //else
-        //{
+        //end ChatGPT
 
         velocity.y += Physics.gravity.y * Time.deltaTime;
 
@@ -64,7 +48,7 @@ public class FPController : MonoBehaviour
             velocity.y = jumpForce;
         }
             
-        //}
+        
 
         characterController.Move(velocity * Time.deltaTime);
 
