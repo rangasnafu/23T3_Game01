@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/LowPolyAlienWorld/Scenes/Level1.unity
+    guid: 1087aaeff440f7748a7bef1a7ec81c74
   m_configObjects: {}
